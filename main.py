@@ -21,9 +21,14 @@ def motion(event):
 
 #setting tkinter window size
 window.geometry("%dx%d" % (width, height))
+
+window.wm_attributes('-topmost', True)
+window.wait_visibility(window)
+window.config(bg='')
+window.wm_attributes('-alpha', 0)
 window.wm_attributes('-transparentcolor', '#ab23ff')
 window.title("Driver Screen")
-Label(window, text= " ", font= ('Helvetica 18'), bg= '#ab23ff').pack(ipadx= width, ipady=height, padx= 2)
-
+# Label(window, text= " ", font= ('Helvetica 18'), bg= '#ab23ff').pack(ipadx= width, ipady=height, padx= 2)
+exitbutton=Button(window,text="Exit",command=window.destroy).pack()
 window.bind('<Motion>', motion)
 window.mainloop()
